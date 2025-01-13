@@ -1,22 +1,18 @@
-import path from "path"
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+/// <reference types="vite/client" />
 
-// https://vitejs.dev/config/
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import viteTsconfigPaths from "vite-tsconfig-paths";
+
+// https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./src"),
-    },
-  },
+  base: "./",
+  plugins: [react(), viteTsconfigPaths()],
   server: {
     proxy: {
       "/api": {
-        // target: "http://localhost:3000",
-        target: "https://api.realworld.io",
-        changeOrigin: true
-      }
-    }
-  }
-})
+        target: "http://localhost:3000",
+      },
+    },
+  },
+});
