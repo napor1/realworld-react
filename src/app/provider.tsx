@@ -19,7 +19,7 @@ export const AppProvider = ({ children }: AppProviderProps) => {
   );
 
   return (
-    <React.Suspense fallback={<div>spinner...</div>}>
+    <React.Suspense fallback={<div style={{ color: "red" }}>spinner...</div>}>
       <ErrorBoundary FallbackComponent={() => <div>Error</div>}>
         <HelmetProvider>
           <QueryClientProvider client={queryClient}>

@@ -4,10 +4,9 @@ import { createBrowserRouter } from "react-router";
 import { RouterProvider } from "react-router/dom";
 
 import { paths } from "@/config/paths";
-
 import {
   default as AppRoot,
-  ErrorBoundary as AppRootErrorBoundary,
+  ErrorBoundary as AppErrorBoundary,
 } from "./routes/app/root";
 
 const convert = (queryClient: QueryClient) => (m: any) => {
@@ -23,16 +22,22 @@ const convert = (queryClient: QueryClient) => (m: any) => {
 export const createAppRouter = (queryClient: QueryClient) =>
   createBrowserRouter([
     {
-      path: paths.app.root.path,
+      path: paths.root.path,
       element: <AppRoot />,
-      ErrorBoundary: AppRootErrorBoundary,
+      ErrorBoundary: AppErrorBoundary,
       children: [
-        // {
-        //   path: paths.app.users.path,
-        //   lazy: () => import("./routes/app/users").then(convert(queryClient)),
-        // },
+        {
+          path: paths.home.path,
+          lazy: () => import("./routes/app/home").then(convert(queryClient)),
+        },
+
+        {
+          path: paths.auth.login.path,
+          lazy: () => import("./routes/auth/login").then(convert(queryClient)),
+        },
       ],
     },
+
     {
       path: "*",
       lazy: () => import("./routes/404").then(convert(queryClient)),
