@@ -2,8 +2,7 @@ import { api } from "@/lib/api-client";
 import { queryConfig } from "@/lib/react-query";
 import { queryOptions, useQuery } from "@tanstack/react-query";
 
-export const getArticles = async (): Promise<any> => {
-  await new Promise((resolve) => setTimeout(resolve, 1000));
+export const getArticles = (): Promise<any> => {
   return api.get("/api/articles");
 };
 
