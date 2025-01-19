@@ -1,4 +1,4 @@
-import { HomeLayout } from "@/components/layouts/home-layout";
+import { RootLayout } from "@/components/layouts/root-layout";
 import { Outlet } from "react-router";
 
 export const ErrorBoundary = () => {
@@ -7,9 +7,9 @@ export const ErrorBoundary = () => {
 
 const AppRoot = () => {
   return (
-    <HomeLayout>
+    <RootLayout>
       <Outlet />
-    </HomeLayout>
+    </RootLayout>
   );
 };
 

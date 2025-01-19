@@ -1,9 +1,6 @@
-import { NavLink } from "react-router";
+import React from "react";
 import "./index.scss";
-import { Layout } from "antd";
-import { paths } from "@/config/paths";
-
-const { Header, Content, Footer } = Layout;
+import { Col, Row } from "antd";
 
 const Banner = () => {
   return (
@@ -14,40 +11,30 @@ const Banner = () => {
   );
 };
 
-const Logo = () => {
+const LeftCol = ({ children }: { children: React.ReactNode }) => {
   return (
-    <NavLink className="logo" to={paths.home.getHref()}>
-      conduit
-    </NavLink>
+    <Col span={18} className="home-col">
+      {children}
+    </Col>
   );
 };
 
-const NavLinks = () => {
+const RightCol = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="nav-links-wrapper">
-      <NavLink className="nav-link" to={paths.home.getHref()}>
-        Home
-      </NavLink>
-      <NavLink className="nav-link" to={paths.auth.login.getHref()}>
-        Login
-      </NavLink>
-      <NavLink className="nav-link" to={paths.auth.register.getHref()}>
-        Register
-      </NavLink>
-    </div>
+    <Col span={6} className="home-col">
+      {children}
+    </Col>
   );
 };
 
 export function HomeLayout({ children }: { children: React.ReactNode }) {
   return (
-    <Layout className="home-layout">
-      <Header className="home-header">
-        <Logo />
-        <NavLinks />
-      </Header>
+    <>
       <Banner />
-      <Content className="home-content">{children}</Content>
-      <Footer className="home-footer">Footer</Footer>
-    </Layout>
+      <Row className="home-row">{children}</Row>
+    </>
   );
 }
+
+HomeLayout.LeftCol = LeftCol;
+HomeLayout.RightCol = RightCol;

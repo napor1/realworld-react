@@ -1,0 +1,16 @@
+.tags-card {
+  min-height: 300px;
+  padding: 10px;
+  background: #f3f3f3;
+  border-radius: 4px;
+  position: sticky;
+  top: 65px;
+  > h1 {
+    padding-bottom: 8px;
+    font-size: 18px;
+  }
+  .tags-wrapper {
+    max-height: 50vh;
+    overflow-y: scroll;
+  }
+}
