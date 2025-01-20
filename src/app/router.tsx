@@ -35,6 +35,11 @@ const createAppRouter = (queryClient: QueryClient) =>
           path: paths.auth.login.path,
           lazy: () => import("./routes/auth/login").then(convert(queryClient)),
         },
+        {
+          path: paths.auth.register.path,
+          lazy: () =>
+            import("./routes/auth/register").then(convert(queryClient)),
+        },
       ],
     },
 

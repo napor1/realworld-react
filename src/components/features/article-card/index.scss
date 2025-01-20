@@ -1,0 +1,31 @@
+.article-card {
+  margin-bottom: 16px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+  .card-title {
+    display: flex;
+    align-items: center;
+    .info {
+      .username {
+        color: #5cb85c;
+      }
+      .date {
+        color: #bbb;
+        font-size: 0.8rem;
+        display: block;
+      }
+    }
+    .like-btn {
+      margin-left: auto;
+      color: #5cb85c;
+    }
+  }
+  .card-description {
+    > h1 {
+      color: #000;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+  }
+}

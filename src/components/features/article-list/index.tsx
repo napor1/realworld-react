@@ -1,6 +1,7 @@
 import { useArticles } from "@/api/articles";
 
 import { useState } from "react";
+import { ArticleCard } from "../article-card";
 
 export function ArticleList() {
   const PAGE_SIZE = 45;
@@ -36,13 +37,9 @@ export function ArticleList() {
         Next
       </button>
       {isFetching ? <div>Fetching...</div> : null}
-      <ul>
-        {articles.map((item, index) => (
-          <li key={index} style={{ height: "20px" }}>
-            {item.title}
-          </li>
-        ))}
-      </ul>
+      {articles.map((item, index) => (
+        <ArticleCard key={index} data={item}></ArticleCard>
+      ))}
     </div>
   );
 }

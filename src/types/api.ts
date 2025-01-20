@@ -21,13 +21,17 @@ export type Article = {
   tagList: string[];
   createdAt: string;
   updatedAt: string;
-  favourited: boolean;
-  favouritiesCount: number;
+  favorited: boolean;
+  favoritesCount: number;
   author: Profile;
 };
 
+export type ListArticle = Omit<Article, "body"> & {
+  _fmtUpdatedAt: string;
+};
+
 export type Articles = {
-  articles: Omit<Article, "body">[];
+  articles: ListArticle[];
   articlesCount: number;
 };
 
